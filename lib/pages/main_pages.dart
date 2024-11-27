@@ -14,6 +14,21 @@ class _MainPagesState extends State<MainPages> {
   var currentTab5 = 0;
 
   @override
+  void didChangeDependencies() {
+    // print('test ${ModalRoute.of(context)!.settings.arguments}');
+
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      final args4 =
+          ModalRoute.of(context)!.settings.arguments! as Map<String, dynamic>;
+      currentTab5 = args4['index6'];
+      print(currentTab5);
+    }
+
+    // final args4 = ModalRoute.of(context)!.settings.arguments! as Map<String, dynamic>;
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: [
