@@ -3,6 +3,7 @@ import 'package:routes3/consts/routes.dart';
 import 'package:routes3/pages/profile_pages.dart';
 import 'package:routes3/pages/setting_pages.dart';
 import 'package:routes3/widgets/button_nav.dart';
+import 'package:routes3/widgets/button_push.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -18,7 +19,13 @@ class _HomePagesState extends State<HomePages> {
       appBar: AppBar(
         title: const Text('Home Title'),
       ),
-      body: const ButtonNav(),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: ButtonNav()),
+          Center(child: ButtonPush()),
+        ],
+      ),
     );
   }
 }

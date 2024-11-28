@@ -21,7 +21,7 @@ class _MainPagesState extends State<MainPages> {
       final args4 =
           ModalRoute.of(context)!.settings.arguments! as Map<String, dynamic>;
       currentTab5 = args4['index6'];
-      print(currentTab5);
+      // print(currentTab5);
     }
 
     // final args4 = ModalRoute.of(context)!.settings.arguments! as Map<String, dynamic>;
