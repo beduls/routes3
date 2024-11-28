@@ -9,15 +9,45 @@ class ButtonNav extends StatefulWidget {
 }
 
 class _ButtonNavState extends State<ButtonNav> {
+  var currentPage7 = 0;
+  bool? _isBtnSplashDisabled;
+
+  @override
+  void initState() {
+    _isBtnSplashDisabled = false;
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    // print('test ${ModalRoute.of(context)!.settings.arguments}');
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      final args4 =
+          ModalRoute.of(context)!.settings.arguments! as Map<String, dynamic>;
+      currentPage7 = args4['index6'];
+      if (currentPage7 == 1) {
+        _isBtnSplashDisabled = true;
+      }
+    }
+
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, AppRoutes.spaslhPage0);
+              if (_isBtnSplashDisabled == false) {
+                Navigator.pushReplacementNamed(context, AppRoutes.spaslhPage0);
+              } else {
+                null;
+              }
             },
-            child: const Text('Kembali ke Splash Screen')),
+            child: Text(_isBtnSplashDisabled!
+                ? 'Hold On..'
+                : 'Kembali ke Splash Screen')),
         const SizedBox(
           height: 20,
         ),
